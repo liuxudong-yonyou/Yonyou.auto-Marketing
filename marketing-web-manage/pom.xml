@@ -26,13 +26,6 @@
 			<version>3.8.1</version>
 			<scope>test</scope>
 		</dependency>
-
-		<dependency>
-			<groupId>yonyou.marketing.api</groupId>
-			<artifactId>marketing-api-user</artifactId>
-			<version>${marketing-api-user.version}</version>
-		</dependency>
-
 		<!-- 自己工程的依赖 -->
 		<dependency>
 			<groupId>yonyou.marketing.common</groupId>
