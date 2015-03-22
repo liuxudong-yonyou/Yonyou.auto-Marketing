@@ -9,7 +9,7 @@ public class BaseBean {
 	
 	 /**
 	  * 状态枚举
-	  * @author lu
+	  * @author liu
 	  *
 	  */
 	 public static enum STATE {
