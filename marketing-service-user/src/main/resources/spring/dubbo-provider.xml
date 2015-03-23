@@ -14,8 +14,14 @@
 
 	<!-- 用dubbo协议在20880端口暴露服务 -->
 	<dubbo:protocol name="dubbo" port="20880" />
-		
+
+
+	<!-- 监控中心配置 -->
+	<!-- 监控中心协议，如果为protocol="registry"，表示从注册中心发现监控中心地址， 否则直连监控中心 -->
+	<!-- 直连监控中心服务器地址，如：address="192.168.3.71:7070" -->
+	<dubbo:monitor protocol="registry" />
 	<!-- 用户服务接口 -->
-	<dubbo:service interface="yonyou.marketing.api.user.services.UserService" ref="userService" />
+	<dubbo:service interface="yonyou.marketing.api.user.services.UserService"
+		ref="userService" />
 
 </beans>  
