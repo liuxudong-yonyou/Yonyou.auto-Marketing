@@ -1,8 +1,13 @@
 package yonyou.marketing.service.user;
 
+
+
+import org.springframework.stereotype.Service;
+
 import yonyou.marketing.api.user.entity.SysUser;
 import yonyou.marketing.api.user.services.UserService;
 
+@Service("userService")
 public class UserServiceImpl implements UserService {
 
 	@Override
@@ -41,6 +46,12 @@ public class UserServiceImpl implements UserService {
 	public void updateUserPwd(Long userId, String newPwd, boolean isTrue) {
 		// TODO Auto-generated method stub
 
+	}
+
+	@Override
+	public String findUserByNo(String name) {
+		
+		return "hello "+name;
 	}
 
 }
