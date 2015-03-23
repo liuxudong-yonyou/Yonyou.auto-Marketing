@@ -25,6 +25,9 @@ public interface UserService {
 	 * 根据登录名取得用户对象
 	 */
 	public SysUser findUserByUserNo(String userNo);
+	
+	//test 
+	public String findUserByNo(String name);
 
 	/**
 	 * 根据ID删除一个用户，同时删除与该用户关联的角色关联信息. type="1"的超级管理员不能删除.
