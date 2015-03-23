@@ -27,7 +27,7 @@
 
 
 	<build>
-		<finalName>edu-service-user</finalName>
+		<finalName>marketing-service-user</finalName>
 
 		<resources>
 			<resource>
