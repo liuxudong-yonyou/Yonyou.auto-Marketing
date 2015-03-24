@@ -525,7 +525,4 @@
 		</plugins>
 	</build>
 
-	<modules>
-		<module>marketing-common-config</module>
-	</modules>
 </project>
