@@ -1,5 +1,5 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>yonyou.marketing.common</groupId>
@@ -42,8 +42,10 @@
 		<marketing-service-user.version>1.0-SNAPSHOT</marketing-service-user.version>
 
 		<!-- web projects -->
-		<!-- 运营系统 -->
+		<!-- 后台管理系统 -->
 		<marketing-web-manage.version>1.0-SNAPSHOT</marketing-web-manage.version>
+		<!-- 微信后台 -->
+		<marketing-web-wechat.version>1.0-SNAPSHOT</marketing-web-wechat.version>
 
 		<!-- frameworks -->
 		<org.springframework.version>3.2.4.RELEASE</org.springframework.version>
@@ -524,5 +526,4 @@
 			</plugin>
 		</plugins>
 	</build>
-
 </project>
