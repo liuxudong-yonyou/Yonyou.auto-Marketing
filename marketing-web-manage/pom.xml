@@ -13,7 +13,6 @@
 	<artifactId>marketing-web-manage</artifactId>
 	<packaging>war</packaging>
 	<version>${marketing-web-manage.version}</version>
-
 	<name>marketing-web-manage</name>
 	<url>http://maven.apache.org</url>
 
