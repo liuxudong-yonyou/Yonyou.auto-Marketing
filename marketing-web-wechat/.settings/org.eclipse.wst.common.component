@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?><project-modules id="moduleCoreId" project-version="1.5.0">
+    <wb-module deploy-name="marketing-web-wechat">
+        <wb-resource deploy-path="/" source-path="/target/m2e-wtp/web-resources"/>
+        <wb-resource deploy-path="/" source-path="/src/main/webapp" tag="defaultRootSource"/>
+        <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/main/java"/>
+        <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/main/resources"/>
+        <dependent-module archiveName="marketing-common-1.0-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/marketing-common/marketing-common">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="marketing-common-config-1.0-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/marketing-common-config/marketing-common-config">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="marketing-common-web-1.0-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/marketing-common-web/marketing-common-web">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="marketing-api-user-1.0-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/marketing-api-user/marketing-api-user">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <property name="context-root" value="marketing-web-wechat"/>
+        <property name="java-output-path" value="/marketing-web-wechat/target/classes"/>
+    </wb-module>
+</project-modules>
