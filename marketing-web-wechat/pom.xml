@@ -25,9 +25,9 @@
 			<version>3.8.1</version>
 			<scope>test</scope>
 		</dependency>
-		
-		
-		
+
+
+
 		<!-- 自己工程的依赖 -->
 		<dependency>
 			<groupId>yonyou.marketing.common</groupId>
@@ -301,12 +301,15 @@
 			<artifactId>zkclient</artifactId>
 		</dependency>
 		<!-- dubbo 需要的jar end -->
-		
-		
-		
-		
-		
+
+		<!-- 微信框架的引用 -->
+		<dependency>
+			<groupId>com.jfinal</groupId>
+			<artifactId>jfinal_weixin</artifactId>
+		</dependency>
+
 	</dependencies>
+	
 	<build>
 		<finalName>marketing-web-wechat</finalName>
 	</build>
