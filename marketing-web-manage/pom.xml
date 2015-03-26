@@ -300,7 +300,23 @@
 		<!-- dubbo 需要的jar end -->
 
 	</dependencies>
+	
+	
 	<build>
 		<finalName>marketing-web-manage</finalName>
+		<resources>
+			<resource>
+				<targetPath>${project.build.directory}/classes</targetPath>
+				<directory>src/main/resources</directory>
+				<filtering>true</filtering>
+				<includes>
+					<include>**/*</include>
+				</includes>
+			</resource>
+		</resources>
 	</build>
+	
+	
+	
+	
 </project>
