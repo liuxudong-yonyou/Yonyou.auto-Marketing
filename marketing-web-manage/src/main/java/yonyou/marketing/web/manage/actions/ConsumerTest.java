@@ -1,4 +1,4 @@
-package test;
+package yonyou.marketing.web.manage.actions;
 
 import java.util.List;
 
