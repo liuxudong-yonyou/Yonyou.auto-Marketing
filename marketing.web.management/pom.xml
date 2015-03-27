@@ -10,10 +10,10 @@
 	</parent>
 
 	<groupId>yonyou.marketing.web</groupId>
-	<artifactId>marketing-web-manage</artifactId>
+	<artifactId>marketing-web-management</artifactId>
 	<packaging>war</packaging>
-	<version>${marketing-web-manage.version}</version>
-	<name>marketing-web-manage</name>
+	<version>${marketing-web-management.version}</version>
+	<name>marketing-web-management</name>
 	<url>http://maven.apache.org</url>
 
 
@@ -203,12 +203,8 @@
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-oxm</artifactId>
 		</dependency>
-		<!-- 
-		<dependency>
-			<groupId>org.springframework</groupId>
-			<artifactId>spring-struts</artifactId>
-		</dependency>
-		 -->
+		<!-- <dependency> <groupId>org.springframework</groupId> <artifactId>spring-struts</artifactId> 
+			</dependency> -->
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-test</artifactId>
@@ -246,6 +242,14 @@
 
 
 		<!-- Others Begin -->
+		<dependency>
+			<groupId>opensymphony</groupId>
+			<artifactId>sitemesh</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.freemarker</groupId>
+			<artifactId>freemarker</artifactId>
+		</dependency>
 		<dependency>
 			<groupId>org.apache.tomcat</groupId>
 			<artifactId>servlet-api</artifactId>
@@ -302,10 +306,10 @@
 		<!-- dubbo 需要的jar end -->
 
 	</dependencies>
-	
-	
+
+
 	<build>
-		<finalName>marketing-web-manage</finalName>
+		<finalName>marketing-web-management</finalName>
 		<resources>
 			<resource>
 				<targetPath>${project.build.directory}/classes</targetPath>
@@ -317,8 +321,8 @@
 			</resource>
 		</resources>
 	</build>
-	
-	
-	
-	
+
+
+
+
 </project>
