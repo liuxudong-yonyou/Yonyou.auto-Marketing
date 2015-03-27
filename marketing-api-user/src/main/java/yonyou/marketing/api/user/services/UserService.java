@@ -1,6 +1,7 @@
 package yonyou.marketing.api.user.services;
 
-import yonyou.marketing.api.user.entity.SysUser;
+import yonyou.marketing.api.user.entity.UserDto;
+
 
 /**
  * @author BENJAMIN
@@ -12,19 +13,19 @@ public interface UserService {
 	 * 保存用户信息.
 	 * @param pmsUser
 	 */
-	public void create(SysUser pmsUser);
+	public void create(UserDto pmsUser);
 	
 	/**
 	 * 根据ID获取用户信息.
 	 * @param userId
 	 * @return
 	 */
-	public SysUser getById(Long userId);
+	public UserDto getById(Long userId);
 
 	/**
 	 * 根据登录名取得用户对象
 	 */
-	public SysUser findUserByUserNo(String userNo);
+	public UserDto findUserByUserNo(String userNo);
 	
 	//test 
 	public String findUserByNo(String name);
@@ -42,7 +43,7 @@ public interface UserService {
 	 * 更新用户信息.
 	 * @param user
 	 */
-	public void update(SysUser user);
+	public void update(UserDto user);
 	
 	/**
 	 * 根据用户ID更新用户密码.
