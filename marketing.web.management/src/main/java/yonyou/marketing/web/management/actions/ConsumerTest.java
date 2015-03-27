@@ -4,7 +4,6 @@ import java.util.List;
 
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
-import yonyou.marketing.api.user.entity.SysUser;
 import yonyou.marketing.api.user.services.UserService;
 
 

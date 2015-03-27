@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import yonyou.marketing.api.user.entity.UserDto;
 import yonyou.marketing.api.user.services.UserService;
 
 @Controller
@@ -25,25 +26,19 @@ public class MainController extends BaseAction{
 	 * @param request
 	 * @param response
 	 */
-	@RequestMapping("signIn")
+	@RequestMapping("/signIn")
 	public void userSignIn(HttpServletResponse response){
 		try {
 			
 			String userName=request.getParameter("user_name");
-			log.debug(userName);
-			//判断是否存在用户
-//			boolean hasUser=mainService.userExists(user);
-//			if(hasUser){
-//				List<TUser> userList = mainService.queryUserList(user);
-//				
-//				SessionUtil.setUser(request,userList.get(0));
-//				sendSuccessMessage(response, "登录成功.");
-//				
-//			}else{
-//				log.info("登录失败！");
-//				sendFailureMessage(response, "密码或者帐号错误.");
-//				return;
-//			}
+			
+			UserDto user= userService.findUserByUserNo(userName);
+			
+			if(user==null){
+				sendFailureMessage(response, "密码或者帐号错误.");
+			}else{
+				sendSuccessMessage(response, "登录成功."+user.getNickname());
+			}
 		} catch (Exception e) {
 			e.printStackTrace();
 			request.setAttribute("InfoMessage", "信息载入失败！具体异常信息：" + e.getMessage());
