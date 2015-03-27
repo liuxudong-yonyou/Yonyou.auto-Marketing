@@ -10,43 +10,64 @@
 	<bean id="dataSource" class="com.alibaba.druid.pool.DruidDataSource" init-method="init" destroy-method="close">
 		<!-- 基本属性driverClassName、 url、user、password -->
 		<property name="driverClassName" value="com.mysql.jdbc.Driver" />
-		<property name="url" value="${jdbc.url}" />
-		<property name="username" value="${jdbc.username}" />
-		<property name="password" value="${jdbc.password}" />
+		<property name="url" value="${jdbc_url}" />
+		<property name="username" value="${jdbc_username}" />
+		<property name="password" value="${jdbc_password}" />
 		<!-- 配置初始化大小、最小、最大 -->
 		<!-- 通常来说，只需要修改initialSize、minIdle、maxActive -->
 		<property name="initialSize" value="2" />
 		<property name="minIdle" value="2" />
 		<property name="maxActive" value="30" />
 		<property name="testWhileIdle" value="false" />
-
-		<!-- 配置获取连接等待超时的时间 -->
-		<property name="maxWait" value="5000" />
-		<!-- 配置一个连接在池中最小生存的时间，单位是毫秒 -->
-		<property name="minEvictableIdleTimeMillis" value="30000" />
+		<!-- <property name="poolPreparedStatements" value="true" /> <property name="maxPoolPreparedStatementPerConnectionSize" value="33" /> -->
 		<!-- 配置间隔多久才进行一次检测，检测需要关闭的空闲连接，单位是毫秒 -->
 		<property name="timeBetweenEvictionRunsMillis" value="60000" />
-		<!-- 解密密码必须要配置的项 -->
-		<property name="filters" value="config" />
-		<property name="connectionProperties" value="config.decrypt=true" />
+		<!-- 配置一个连接在池中最小生存的时间，单位是毫秒 -->
+		<property name="minEvictableIdleTimeMillis" value="25200000" />
+
+		<!-- 打开removeAbandoned功能 -->
+		<property name="removeAbandoned" value="true" />
+		<!-- 1800秒，也就是30分钟 -->
+		<property name="removeAbandonedTimeout" value="1800" />
+		<!-- 关闭abanded连接时输出错误日志 -->
+		<property name="logAbandoned" value="true" />
+
+		<!-- 监控数据库 -->
+		<!-- <property name="filters" value="stat" /> -->
+		<property name="filters" value="mergeStat" />
 	</bean>
 	<!-- 将数据源映射到sqlSessionFactory中 -->
 	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
-		<property name="configLocation" value="classpath:mybatis/mybatis-config.xml" />
+		<property name="mapperLocations" value="classpath:yonyou/marketing/service/user/mappers/UserDtoMapper.xml" />
 		<property name="dataSource" ref="dataSource" />
 	</bean>
-
-	<!-- SqlSession模板类实例 -->
-	<bean id="sessionTemplate" class="org.mybatis.spring.SqlSessionTemplate" destroy-method="close">
-		<constructor-arg index="0" ref="sqlSessionFactory" />
+	
+	<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+		<property name="basePackage" value="yonyou.marketing.service.user.daos" />
+		<property name="sqlSessionFactoryBeanName" value="sqlSessionFactory" />
 	</bean>
+	
 
-	<!--======= 事务配置 Begin ================= -->
-	<!-- 事务管理器（由Spring管理MyBatis的事务） -->
+	<!-- 配置事务管理器 -->
 	<bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
-		<!-- 关联数据源 -->
-		<property name="dataSource" ref="dataSource"></property>
+		<property name="dataSource" ref="dataSource" />
 	</bean>
-	<!--======= 事务配置 End =================== -->
+	
+	<!-- 配置druid监控spring jdbc -->
+	<bean id="druid-stat-interceptor" class="com.alibaba.druid.support.spring.stat.DruidStatInterceptor">
+	</bean>
+	<bean id="druid-stat-pointcut" class="org.springframework.aop.support.JdkRegexpMethodPointcut" scope="prototype">
+		<property name="patterns">
+			<list>
+				<value>org.benjamin.service.*</value>
+			</list>
+		</property>
+	</bean>
+	
+	<aop:config>
+		<aop:advisor advice-ref="druid-stat-interceptor" pointcut-ref="druid-stat-pointcut" />
+	</aop:config>
+	
+	
 
 </beans>

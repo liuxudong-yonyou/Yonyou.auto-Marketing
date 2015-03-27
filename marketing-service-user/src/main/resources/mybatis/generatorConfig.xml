@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration
+  PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+  "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+<generatorConfiguration>
+<classPathEntry  location="E:\maven\.m2\repository\mysql\mysql-connector-java\5.1.32\mysql-connector-java-5.1.32.jar"/>  
+	<context id="context1" >
+		<commentGenerator>
+			<property name="suppressDate" value="true" />
+			<property name="suppressAllComments" value="true" />
+		</commentGenerator>
+		<jdbcConnection driverClass="com.mysql.jdbc.Driver"
+			connectionURL="jdbc:mysql://10.180.6.28:3306/marketing" userId="root"
+			password="123456" />
+		<javaModelGenerator targetPackage="yonyou.marketing.api.user.entity"
+			targetProject="marketing-api-user\src\main\java">
+			<property name="enableSubPackages" value="true" />
+			<property name="trimStrings" value="true" />
+		</javaModelGenerator>
+		<sqlMapGenerator targetPackage="yonyou.marketing.service.user.mappers"
+			targetProject="marketing-service-user\src\main\java">
+			<property name="enableSubPackages" value="true" />
+		</sqlMapGenerator>
+		<javaClientGenerator type="XMLMAPPER"
+			targetPackage="yonyou.marketing.service.user.daos" targetProject="marketing-service-user\src\main\java">
+			<property name="enableSubPackages" value="true" />
+		</javaClientGenerator>
+		<table tableName="tm_user" domainObjectName="UserDto"
+			></table>
+	</context>
+</generatorConfiguration>

@@ -2,32 +2,36 @@ package yonyou.marketing.service.user;
 
 
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import yonyou.marketing.api.user.entity.SysUser;
+import yonyou.marketing.api.user.entity.UserDto;
 import yonyou.marketing.api.user.services.UserService;
+import yonyou.marketing.service.user.biz.UserBiz;
+import yonyou.marketing.service.user.daos.UserDtoMapper;
 
 @Service("userService")
 public class UserServiceImpl implements UserService {
-
+	
+	@Autowired
+	private UserBiz userBiz;
+	
+	
 	@Override
-	public void create(SysUser pmsUser) {
+	public UserDto findUserByUserNo(String userNo) {
+		return userBiz.findUserByUserNo(userNo);
+	}
+	
+	@Override
+	public void create(UserDto pmsUser) {
 		// TODO Auto-generated method stub
 
 	}
 
 	@Override
-	public SysUser getById(Long userId) {
+	public UserDto getById(Long userId) {
 		// TODO Auto-generated method stub
 		return null;
-	}
-
-	@Override
-	public SysUser findUserByUserNo(String userNo) {
-		// TODO Auto-generated method stub
-		SysUser user = new SysUser();
-		user.setNickName("userNo");
-		return user;
 	}
 
 	@Override
@@ -37,7 +41,7 @@ public class UserServiceImpl implements UserService {
 	}
 
 	@Override
-	public void update(SysUser user) {
+	public void update(UserDto user) {
 		// TODO Auto-generated method stub
 
 	}
