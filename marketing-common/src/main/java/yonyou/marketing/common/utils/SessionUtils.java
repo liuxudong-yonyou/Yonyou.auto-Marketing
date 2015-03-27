@@ -6,12 +6,9 @@ import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 
-
-
 import org.apache.log4j.Logger;
 
-import yonyou.marketing.api.user.entity.SysUser;
-import yonyou.marketing.common.utils.Constant.SuperAdmin;
+import yonyou.marketing.api.user.entity.UserDto;
 
 
 /**
@@ -69,7 +66,7 @@ public final class SessionUtils {
 	  * @param request
 	  * @param user
 	  */
-	 public static void setUser(HttpServletRequest request,SysUser user){
+	 public static void setUser(HttpServletRequest request,UserDto user){
 		 request.getSession(true).setAttribute(SESSION_USER, user);
 	 }
 	 
@@ -77,19 +74,19 @@ public final class SessionUtils {
 	 /**
 	  * 从session中获取用户信息
 	  * @param request
-	  * @return SysUser
+	  * @return UserDto
 	  */
-	 public static SysUser getUser(HttpServletRequest request){
-		return (SysUser)request.getSession(true).getAttribute(SESSION_USER);
+	 public static UserDto getUser(HttpServletRequest request){
+		return (UserDto)request.getSession(true).getAttribute(SESSION_USER);
 	 }
 	 
 	 /**
 	  * 从session中获取用户信息
 	  * @param request
-	  * @return SysUser
+	  * @return UserDto
 	  */
 	 public static Integer getUserId(HttpServletRequest request){
-		 SysUser user = getUser(request);
+		 UserDto user = getUser(request);
 		 if(user != null){
 			 return user.getId();
 		 }
@@ -100,7 +97,7 @@ public final class SessionUtils {
 	 /**
 	  * 从session中获取用户信息
 	  * @param request
-	  * @return SysUser
+	  * @return UserDto
 	  */
 	 public static void removeUser(HttpServletRequest request){
 		removeAttr(request, SESSION_USER);
@@ -120,7 +117,7 @@ public final class SessionUtils {
 	 /**
 	  * 从session中获取验证码
 	  * @param request
-	  * @return SysUser
+	  * @return UserDto
 	  */
 	 public static String getValidateCode(HttpServletRequest request){
 		return (String)request.getSession(true).getAttribute(SESSION_VALIDATECODE);
@@ -130,7 +127,7 @@ public final class SessionUtils {
 	 /**
 	  * 从session中获删除验证码
 	  * @param request
-	  * @return SysUser
+	  * @return UserDto
 	  */
 	 public static void removeValidateCode(HttpServletRequest request){
 		removeAttr(request, SESSION_VALIDATECODE);
@@ -142,11 +139,11 @@ public final class SessionUtils {
 	  * @return
 	  */
 	 public static boolean isAdmin(HttpServletRequest request){ //判断登录用户是否超级管理员
-		 SysUser user =  getUser(request);
-		 if(user == null  || user.getSuperAdmin() != SuperAdmin.YES.key){
-			 return false;
-		 }
-		 return true;
+		 UserDto user =  getUser(request);
+//		 if(user == null  || user.getSuperAdmin() != SuperAdmin.YES.key){
+//			 return false;
+//		 }
+		 return false;
 	 }
 	 
 	 
