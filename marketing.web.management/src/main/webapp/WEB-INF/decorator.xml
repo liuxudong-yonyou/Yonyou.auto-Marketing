@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<decorators defaultdir="/WEB-INF/views/decorators">
+	<!-- 不会装饰的页面 -->
+	<excludes>
+		<pattern>**/css/*</pattern>
+		<pattern>**/images/*</pattern>
+		<pattern>**/js/*</pattern>
+		<pattern>**/*.ajax*</pattern>
+		<pattern>**/menu/*</pattern>
+		<pattern>**/*.json*</pattern>
+		<pattern>**/login.htm*</pattern>
+		<pattern>**/top.htm*</pattern>
+		<pattern>**/index.htm*</pattern>
+		<pattern>**/403.htm*</pattern>
+		<pattern>**/404.htm*</pattern>
+		<pattern>**/500.htm*</pattern>
+	</excludes>
+	<!-- main -->
+	<decorator name="main" page="main.html">
+		<pattern>*.htm</pattern>
+	</decorator>
+</decorators>
+
