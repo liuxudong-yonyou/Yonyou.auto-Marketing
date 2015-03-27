@@ -9,5 +9,6 @@ http://www.springframework.org/schema/mvc/spring-mvc-3.0.xsd">
 	<!-- 对模型视图名称的解析，即在模型视图名称添加前后缀 -->
 	<bean class="org.springframework.web.servlet.view.InternalResourceViewResolver" p:prefix="/" p:suffix=".jsp" />
 	
-	
+	<!-- 配置要扫描的包 -->
+	<context:component-scan base-package="yonyou.marketing.web.management..*" />
 </beans>
