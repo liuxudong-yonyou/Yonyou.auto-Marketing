@@ -44,7 +44,7 @@
 
 		<!-- web projects -->
 		<!-- 后台管理系统 -->
-		<marketing-web-manage.version>1.0-SNAPSHOT</marketing-web-manage.version>
+		<marketing-web-management.version>1.0-SNAPSHOT</marketing-web-management.version>
 		<!-- 微信后台 -->
 		<marketing-web-wechat.version>1.0-SNAPSHOT</marketing-web-wechat.version>
 
@@ -367,6 +367,8 @@
 			</dependency>
 			<!-- Spring Dependency End -->
 
+
+
 			<!-- MyBatis Dependency Begin -->
 			<dependency>
 				<groupId>org.mybatis</groupId>
@@ -438,6 +440,11 @@
 				<version>2.3.19</version>
 			</dependency>
 			<dependency>
+				<groupId>opensymphony</groupId>
+				<artifactId>sitemesh</artifactId>
+				<version>2.4.2</version>
+			</dependency>
+			<dependency>
 				<groupId>com.alibaba</groupId>
 				<artifactId>druid</artifactId>
 				<version>1.0.12</version>
@@ -450,7 +457,7 @@
 			<dependency>
 				<groupId>org.json</groupId>
 				<artifactId>json</artifactId>
-				<version>20141113</version>
+				<version>20080701</version>
 			</dependency>
 			<dependency>
 				<groupId>org.apache.httpcomponents</groupId>
