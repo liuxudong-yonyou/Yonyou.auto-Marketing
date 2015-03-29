@@ -12,6 +12,7 @@ import java.util.Hashtable;
 import java.util.Locale;
 
 import org.apache.commons.lang.StringUtils;
+import org.apache.log4j.Logger;
 
 
 /**
@@ -37,6 +38,8 @@ public class DateUtil
 	static java.text.SimpleDateFormat sdfLongTimePlusMill = new java.text.SimpleDateFormat("yyyyMMddHHmmssSSSS");
 	static java.text.SimpleDateFormat sdfMd = new java.text.SimpleDateFormat("MM月dd日");
 	private static long DAY_IN_MILLISECOND = 0x5265c00L;
+	
+	protected static final Logger logger = Logger.getLogger(DateUtil.class);
 
 	public DateUtil()
 	{
@@ -44,7 +47,7 @@ public class DateUtil
 
 	/**
 	 * @author Pablo
-	 * Descrption:ȡ�õ�ǰ����getgetg get Date format Example：2008-05-15
+	 * Descrption:get Date format Example：2008-05-15
 	 * @return String
 	 * @throws java.lang.Exception
 	 */
@@ -59,13 +62,13 @@ public class DateUtil
 		}
 		catch (Exception e)
 		{
-			System.out.println("Error at getDate:" + e.getMessage());
+			logger.error("Error at getDate:" + e.getMessage());
 			return "";
 		}
 	}
 	/**
 	 * @author Pablo
-	 * Descrption:ȡ�õ�ǰ����getgetg get Date format Example：2008年-05月-15日
+	 * Descrption:Date format Example：2008年-05月-15日
 	 * @return String
 	 * @throws java.lang.Exception
 	 */
@@ -80,7 +83,7 @@ public class DateUtil
 		}
 		catch (Exception e)
 		{
-			System.out.println("Error at getDate:" + e.getMessage());
+			logger.error("Error at getDate:" + e.getMessage());			
 			return "";
 		}
 	}
@@ -88,7 +91,7 @@ public class DateUtil
 	
 	/**
 	 * @author vowo
-	 * Descrption:ȡ�õ�ǰ����getgetg get Date format Example：05月-15日
+	 * Descrption:get Date format Example：05月-15日
 	 * @return String
 	 * @throws java.lang.Exception
 	 */
@@ -103,14 +106,14 @@ public class DateUtil
 		}
 		catch (Exception e)
 		{
-			System.out.println("Error at getDate:" + e.getMessage());
+			logger.error("Error at getDate:" + e.getMessage());
 			return "";
 		}
 	}
 	
 	/**
 	 * @author Pablo
-	 * Descrption:ȡ�õ�ǰ����getgetg get Date format Example：2008年-05月-15日 11:05
+	 * Descrption: get Date format Example：2008年-05月-15日 11:05
 	 * @return String
 	 * @throws java.lang.Exception
 	 */
@@ -125,14 +128,14 @@ public class DateUtil
 		}
 		catch (Exception e)
 		{
-			System.out.println("Error at getDate:" + e.getMessage());
+			logger.error("Error at getDate:" + e.getMessage());
 			return "";
 		}
 	}
 	
 	/**
 	 * @author Pablo
-	 * Descrption:ȡ�õ�ǰ����getgetg get Date format Example：Aug 28, 2007
+	 * Descrption: get Date format Example：Aug 28, 2007
 	 * @return String
 	 * @throws java.lang.Exception
 	 */
@@ -147,14 +150,14 @@ public class DateUtil
 		}
 		catch (Exception e)
 		{
-			System.out.println("Error at getDate:" + e.getMessage());
+			logger.error("Error at getDate:" + e.getMessage());
 			return "";
 		}
 	}
 	
 	/**
 	 * @author Pablo
-	 * Descrption:ȡ�õ�ǰ����getgetg get Date format Example：Aug 28, 2007
+	 * Descrption:get Date format Example：Aug 28, 2007
 	 * @return String
 	 * @throws java.lang.Exception
 	 */
@@ -169,7 +172,7 @@ public class DateUtil
 		}
 		catch (Exception e)
 		{
-			System.out.println("Error at getDate:" + e.getMessage());
+			logger.error("Error at getDate:" + e.getMessage());
 			return "";
 		}
 	}
@@ -211,6 +214,7 @@ public class DateUtil
 		}
 		catch (Exception e)
 		{
+			logger.error("Error at getDate:" + e.getMessage());
 			throw e;
 		}
 	}
@@ -232,6 +236,7 @@ public class DateUtil
 		}
 		catch (Exception e)
 		{
+			logger.error("Error at getDate:" + e.getMessage());
 			throw e;
 		}
 	}
@@ -253,6 +258,7 @@ public class DateUtil
 		}
 		catch (Exception e)
 		{
+			logger.error("Error at getDate:" + e.getMessage());
 			throw e;
 		}
 	}
@@ -274,6 +280,7 @@ public class DateUtil
 		}
 		catch (Exception e)
 		{
+			logger.error("Error at getDate:" + e.getMessage());
 			throw e;
 		}
 	}
@@ -293,6 +300,7 @@ public class DateUtil
 		}
 		catch (Exception e)
 		{
+			logger.error("Error at getDate:" + e.getMessage());
 			throw e;
 		}
 	}
@@ -313,6 +321,7 @@ public class DateUtil
 		}
 		catch (Exception e)
 		{
+			logger.error("Error at getDate:" + e.getMessage());
 			e.printStackTrace();
 		}
 		return "";
@@ -335,6 +344,7 @@ public class DateUtil
 		}
 		catch (Exception e)
 		{
+			logger.error("Error at getDate:" + e.getMessage());
 			throw e;
 		}
 	}
