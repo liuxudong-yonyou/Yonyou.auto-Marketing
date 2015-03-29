@@ -38,7 +38,7 @@
 	</bean>
 	<!-- 将数据源映射到sqlSessionFactory中 -->
 	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
-		<property name="mapperLocations" value="classpath:yonyou/marketing/service/user/mappers/UserDtoMapper.xml" />
+		<property name="mapperLocations" value="classpath:yonyou/marketing/service/user/mappers/*.xml" />
 		<property name="dataSource" ref="dataSource" />
 	</bean>
 	
@@ -59,7 +59,7 @@
 	<bean id="druid-stat-pointcut" class="org.springframework.aop.support.JdkRegexpMethodPointcut" scope="prototype">
 		<property name="patterns">
 			<list>
-				<value>org.benjamin.service.*</value>
+				<value>yonyou.marketing.service.user.*</value>
 			</list>
 		</property>
 	</bean>
