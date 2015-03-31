@@ -15,6 +15,5 @@ public class LoginAction {
 	private UserService userservice;
 	
 	public void userLogin(String userNo){
-		UserDto user= userservice.findUserByUserNo(userNo);
 	}
 }
