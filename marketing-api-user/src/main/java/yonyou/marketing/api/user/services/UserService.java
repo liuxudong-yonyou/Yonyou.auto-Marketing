@@ -25,7 +25,7 @@ public interface UserService {
 	/**
 	 * 根据登录名取得用户对象
 	 */
-	public UserDto findUserByUserNo(String userNo);
+	public UserDto findUserByUserNo(String userNo) throws Exception  ;
 	
 	//test 
 	public String findUserByNo(String name);
@@ -53,6 +53,13 @@ public interface UserService {
 	 *            (已进行SHA1加密)
 	 */
 	public void updateUserPwd(Long userId, String newPwd, boolean isTrue);
+	
+	
+	
+	/**
+	 * 根据登录的用户获取权限
+	 */
+	public UserDto getMenuBtnByUser(UserDto user) throws Exception  ;
 
 
 }
