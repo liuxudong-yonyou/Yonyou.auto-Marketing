@@ -48,6 +48,12 @@
 		</dependency>
 		<!-- 自己工程的依赖 OVER -->
 
+
+		<dependency>
+			<groupId>com.google.guava</groupId>
+			<artifactId>guava</artifactId>
+			<version>18.0</version>
+		</dependency>
 		<!-- Common Dependency Begin -->
 		<dependency>
 			<groupId>antlr</groupId>
