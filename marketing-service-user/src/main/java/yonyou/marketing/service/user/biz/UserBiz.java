@@ -8,31 +8,26 @@ import org.springframework.stereotype.Service;
 
 import yonyou.marketing.api.user.entity.UserDto;
 import yonyou.marketing.api.user.entity.UserDtoExample;
+import yonyou.marketing.common.exception.ServiceException;
 import yonyou.marketing.common.utils.SessionUtils;
 import yonyou.marketing.service.user.daos.UserDtoMapper;
 
 @Service("userBiz")
 public class UserBiz {
 	protected static final Logger logger = Logger.getLogger(SessionUtils.class);
-	
+
 	@Autowired
 	private UserDtoMapper mapper;
-	
-	public UserDto findUserByUserNo(String userNo) {
-		UserDto user = null;
-		try {
 
-			UserDtoExample dtoExample = new UserDtoExample();
-			dtoExample.createCriteria().andNoEqualTo(userNo);
-			List<UserDto> list = mapper.selectByExample(dtoExample);
-			if(list.size()>0){
-				user=list.get(0);
-			}
-		} catch (Exception e) {
-			e.printStackTrace();
-			logger.error(e.getMessage());
-		} finally {
-			
+	public UserDto findUserByUserNo(String userNo) throws ServiceException{
+		UserDto user = null;
+		UserDtoExample dtoExample = new UserDtoExample();
+		dtoExample.createCriteria().andNoEqualTo(userNo);
+		List<UserDto> list = mapper.selectByExample(dtoExample);
+		if (list.size() == 1) {
+			user = list.get(0);
+		} else {
+			throw new ServiceException("未找到该用户名！");
 		}
 		return user;
 

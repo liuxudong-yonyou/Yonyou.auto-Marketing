@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import yonyou.marketing.api.user.entity.UserDto;
 import yonyou.marketing.api.user.services.UserService;
+import yonyou.marketing.common.exception.ServiceException;
 import yonyou.marketing.service.user.biz.UserBiz;
 import yonyou.marketing.service.user.daos.UserDtoMapper;
 
@@ -18,7 +19,7 @@ public class UserServiceImpl implements UserService {
 	
 	
 	@Override
-	public UserDto findUserByUserNo(String userNo) {
+	public UserDto findUserByUserNo(String userNo) throws ServiceException {
 		return userBiz.findUserByUserNo(userNo);
 	}
 	
@@ -56,6 +57,12 @@ public class UserServiceImpl implements UserService {
 	public String findUserByNo(String name) {
 		
 		return "hello "+name;
+	}
+
+	@Override
+	public UserDto getMenuBtnByUser(UserDto user) throws Exception {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }
