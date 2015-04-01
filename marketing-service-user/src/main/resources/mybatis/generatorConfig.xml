@@ -25,7 +25,7 @@
 			targetPackage="yonyou.marketing.service.user.daos" targetProject="marketing-service-user\src\main\java">
 			<property name="enableSubPackages" value="true" />
 		</javaClientGenerator>
-		<table tableName="tm_user" domainObjectName="UserDto"
+		<table tableName="sys_menu" domainObjectName="SysMenuDto"
 			></table>
 	</context>
 </generatorConfiguration>
