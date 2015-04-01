@@ -1,5 +1,8 @@
 package yonyou.marketing.api.user.services;
 
+import java.util.List;
+import java.util.Map;
+
 import yonyou.marketing.api.user.entity.UserDto;
 
 
@@ -57,9 +60,13 @@ public interface UserService {
 	
 	
 	/**
-	 * 根据登录的用户获取权限
+	 *  查询用户拥有的菜单
+	 * 
+	 * @param queryMap
+	 * @return
+	 * @throws Exception
 	 */
-	public UserDto getMenuBtnByUser(UserDto user) throws Exception  ;
+	public List<Map> getMenuByUser(Map queryMap) throws Exception  ;
 
 
 }
