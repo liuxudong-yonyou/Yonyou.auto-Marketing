@@ -1,6 +1,7 @@
 package yonyou.marketing.service.user.daos;
 
 import java.util.List;
+import java.util.Map;
 
 import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Component;
@@ -32,4 +33,6 @@ public interface UserDtoMapper {
     int updateByPrimaryKeySelective(UserDto record);
 
     int updateByPrimaryKey(UserDto record);
+    
+    List<Map> getMenuByUser (Map queryMap);
 }

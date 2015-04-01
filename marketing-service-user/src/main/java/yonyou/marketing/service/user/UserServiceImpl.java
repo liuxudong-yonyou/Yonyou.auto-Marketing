@@ -2,8 +2,12 @@ package yonyou.marketing.service.user;
 
 
 
+import java.util.List;
+import java.util.Map;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import yonyou.marketing.api.user.entity.UserDto;
 import yonyou.marketing.api.user.services.UserService;
@@ -11,6 +15,7 @@ import yonyou.marketing.common.exception.ServiceException;
 import yonyou.marketing.service.user.biz.UserBiz;
 import yonyou.marketing.service.user.daos.UserDtoMapper;
 
+@Transactional
 @Service("userService")
 public class UserServiceImpl implements UserService {
 	
@@ -59,10 +64,10 @@ public class UserServiceImpl implements UserService {
 		return "hello "+name;
 	}
 
+
 	@Override
-	public UserDto getMenuBtnByUser(UserDto user) throws Exception {
-		// TODO Auto-generated method stub
-		return null;
+	public List<Map> getMenuByUser(Map queryMap) throws Exception {
+		return userBiz.getMenuByUser(queryMap);
 	}
 
 }

@@ -109,7 +109,7 @@
       <include refid="Example_Where_Clause" />
     </if>
   </delete>
-  <insert id="insert" parameterType="yonyou.marketing.api.user.entity.UserDto" >
+  <insert id="insert" parameterType="yonyou.marketing.api.user.entity.UserDto" useGeneratedKeys="true" keyProperty="id">
     insert into tm_user (id, no, email, 
       pwd, nickName, state, 
       loginCount, loginTime, deleted, 
@@ -350,4 +350,36 @@
       superAdmin = #{superadmin,jdbcType=INTEGER}
     where id = #{id,jdbcType=INTEGER}
   </update>
+  
+  
+  <select id="getMenuByUser" parameterType="java.util.HashMap" resultType="java.util.HashMap">
+  	select DISTINCT 
+  		   x.id as id,
+  		   x.parentId as pId,
+  		   x.name as name,
+  		   case x.url when '' THEN 'true' else 'false' end as  isParent,
+  		   x.url as menuUrl
+		from sys_menu x where 1=1
+		<if test="userId != null  and userId != '' ">
+		and EXISTS
+			(SELECT  * FROM sys_role_rel b
+				where b.objId= x.id and b.relType=0
+				and EXISTS (
+					SELECT * FROM sys_role_rel r
+					WHERE r.roleId = b.roleId
+					AND EXISTS (
+						SELECT 1 FROM sys_role_rel u WHERE u.roleId = r.roleId AND u.objId = #{userId} and u.reltype=1
+					)
+			))
+		</if>
+		<choose>
+			<when test="parentId != null  and parentId != '' ">
+				and x.parentId=#{parentId}
+			</when>
+			<otherwise>
+				and x.rank =1
+			</otherwise>
+		</choose>
+  </select>
+  
 </mapper>
