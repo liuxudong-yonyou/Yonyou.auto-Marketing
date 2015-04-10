@@ -39,6 +39,15 @@
 					<include>**/*.properties</include>
 				</includes>
 			</resource>
+			<resource>
+				<targetPath>${project.build.directory}/classes/yonyou/marketing/service/user/mappers</targetPath>
+				<directory>src/main/java/yonyou/marketing/service/user/mappers</directory>
+				<filtering>true</filtering>
+				<includes>
+					<include>**/*.xml</include>
+					<include>**/*.properties</include>
+				</includes>
+			</resource>
 			<!-- 结合com.alibaba.dubbo.container.Main -->
 			<resource>
 				<targetPath>${project.build.directory}/classes/META-INF/spring</targetPath>
@@ -138,13 +147,13 @@
 			<artifactId>marketing-common</artifactId>
 			<version>${marketing-common.version}</version>
 		</dependency>
-		
+
 		<dependency>
 			<groupId>yonyou.marketing.common</groupId>
 			<artifactId>marketing-common-config</artifactId>
 			<version>${marketing-common-config.version}</version>
 		</dependency>
-		
+
 		<dependency>
 			<groupId>yonyou.marketing.common</groupId>
 			<artifactId>marketing-common-core</artifactId>
@@ -348,6 +357,10 @@
 			<groupId>org.mybatis</groupId>
 			<artifactId>mybatis-spring</artifactId>
 		</dependency>
+		<dependency>
+			<groupId>com.github.pagehelper</groupId>
+			<artifactId>pagehelper</artifactId>
+		</dependency>
 		<!-- MyBatis Dependency End -->
 
 
@@ -371,14 +384,14 @@
 			<artifactId>jsoup</artifactId>
 		</dependency>
 		<!-- Others End -->
-		
+
 		<!-- Mysql Driver Begin -->
 		<dependency>
 			<groupId>mysql</groupId>
 			<artifactId>mysql-connector-java</artifactId>
 		</dependency>
 		<!-- Mysql Driver End -->
-		
+
 		<!-- dubbo 需要的jar start -->
 		<dependency>
 			<groupId>org.jboss.netty</groupId>
