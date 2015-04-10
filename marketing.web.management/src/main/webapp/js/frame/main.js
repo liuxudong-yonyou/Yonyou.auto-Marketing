@@ -45,19 +45,41 @@ var setting = {
 	async : {
 		autoParam : [ "id" ],
 		enable : true,
-		url : "getFuncList.do"
+		url : "getFuncList.do",
+		dataFilter : dataSet
 	},
 	check : {// 设置 zTree 的节点上是否显示 checkbox / radio ,默认为false
 		enable : false
 	},
 	callback : {
 		onClick : menuOnClick
+	},
+	view : {
+		showLine : true
 	}
+
 };
 
+// 点击菜单的事件
 function menuOnClick(event, treeId, treeNode) {
-	alert(treeNode.menuUrl);
-	BenFrame.main.addTabs(treeNode.name,treeNode.menuUrl);
+	if (treeNode.menuUrl == null || treeNode.menuUrl == "") {
+		return false;
+	} else {
+		BenFrame.main.addTabs(treeNode.name, treeNode.menuUrl);
+	}
 }
 
-
+function dataSet(treeId, parentNode, responseData) {
+	if (responseData) {
+		for (var i = 0; i < responseData.length; i++) {
+			if (responseData[i].isParent == 'true') {
+				responseData[i].icon = "jquery.zTree-3.5.02/css/zTreeStyle/img/diy/1_close.png";
+				responseData[i].iconClose = "jquery.zTree-3.5.02/css/zTreeStyle/img/diy/1_close.png";
+				responseData[i].iconOpen = "jquery.zTree-3.5.02/css/zTreeStyle/img/diy/1_open.png";
+			} else {
+				responseData[i].icon = "jquery.zTree-3.5.02/css/zTreeStyle/img/diy/2.png";
+			}
+		}
+	}
+	return responseData;
+}

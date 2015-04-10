@@ -102,9 +102,7 @@ public class MainController extends BaseAction{
 			
 			//得到该用户下所有的按钮权限
 			List<Map> btnList= userService.getMenuByUser(queryMap);
-			log.info( JSONUtil.toJSONString(btnList));
 			SessionUtils.setAttr(request, "userPrivilege", btnList);
-			//BenFrame.main.addTabs('"+nodeName+"','"+url+"')
 			//将用户的权限放到Session中
 			
 			HtmlUtil.writerJson(response, JSONUtil.toJSONString(btnList));
