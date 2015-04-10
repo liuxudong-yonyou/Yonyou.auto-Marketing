@@ -1,14 +1,18 @@
-jdbcUrl = jdbc:mysql://127.0.0.1/jfinal_weixin?characterEncoding=utf8&zeroDateTimeBehavior=convertToNull
+jdbcUrl = jdbc:mysql://127.0.0.1:3306/test?characterEncoding=utf8&zeroDateTimeBehavior=convertToNull
 user = root
-password =
-devMode = true
+password = root
+devMode = false
 
 # 微信服务器回调所用的 token
 token=__my__token__
 
 # 测试用的账号
+#appId=wx35f1233f9f79cc39
+#appSecret=bc7009c471178bf85edfda0e295d4382
+
 appId=wxc4a0837384f1ce24
 appSecret=61961f81da64a09ed9495d253d83fbcf
+
 
 #是否对消息进行加密，是否对消息进行加密，对应于微信平台的消息加解密方式，false支持明文模式及兼容模式，true支持安全模式及兼容模式
 encryptMessage=false
