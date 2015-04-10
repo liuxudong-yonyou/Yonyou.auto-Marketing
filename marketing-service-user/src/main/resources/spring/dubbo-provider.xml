@@ -14,8 +14,6 @@
 
 	<!-- 用dubbo协议在20880端口暴露服务 -->
 	<dubbo:protocol name="dubbo" port="20880" />
-	<!-- 访问日志 -->
-	<dubbo:protocol accesslog="true" />
 
 
 	<!-- 监控中心配置 -->

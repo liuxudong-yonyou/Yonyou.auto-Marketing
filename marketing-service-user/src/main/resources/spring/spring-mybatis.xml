@@ -40,8 +40,7 @@
 	</bean>
 	<!-- 将数据源映射到sqlSessionFactory中 -->
 	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
-		<property name="mapperLocations"
-			value="classpath:yonyou/marketing/service/user/mappers/*.xml" />
+		<property name="mapperLocations" value="classpath:yonyou/marketing/service/user/mappers/*.xml" />
 		<property name="dataSource" ref="dataSource" />
 	</bean>
 
@@ -74,7 +73,6 @@
 		<aop:advisor advice-ref="druid-stat-interceptor"
 			pointcut-ref="druid-stat-pointcut" />
 	</aop:config>
-
 
 
 </beans>
